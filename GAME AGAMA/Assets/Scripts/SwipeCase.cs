@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class SwipeCard : MonoBehaviour
+public class SwipeCase : MonoBehaviour
 {
     public float swipeThreshold = 1f; // Distance needed to consider a swipe (adjust for world space)
     [TextArea] public string testCase;
@@ -16,6 +16,7 @@ public class SwipeCard : MonoBehaviour
     private bool isDragging = false;
     private Transform cardTransform; // Reference to the card's Transform
     private TextMeshPro caseText; // Reference to the TextMeshPro component for displaying text
+    private CaseHandler caseHandler;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class SwipeCard : MonoBehaviour
         caseText = GameObject.Find("TestCaseTMP").GetComponent<TextMeshPro>();
         resetPos = GameObject.Find("CrimeCaseTransform").GetComponent<Transform>();
         phoneAnim = GameObject.Find("PhoneScreen").GetComponent<Animator>();
+        caseHandler = GameObject.Find("CaseHandler").GetComponent<CaseHandler>();
         caseText.text = testCase;
     }
 
@@ -48,10 +50,9 @@ public class SwipeCard : MonoBehaviour
             cardTransform.position = new Vector3(cardTransform.position.x, cardTransform.position.y + delta.y, cardTransform.position.z);
 
             // Adjust rotation based on vertical drag
-            float tiltZ = Mathf.Lerp(0, transform.position.y > resetPos.position.y ? maxTiltUp : maxTiltDown, Mathf.Abs(transform.position.y - resetPos.position.y) / swipeThreshold);
+            float tiltZ = Mathf.Lerp(0, transform.position.y > resetPos.position.y ? maxTiltUp : maxTiltDown, Mathf.Abs(transform.position.y - resetPos.position.y) / 1);
             tiltZ = Mathf.Clamp(tiltZ, maxTiltUp, maxTiltDown);
             cardTransform.rotation = Quaternion.Euler(0, 0, tiltZ);
-            Debug.Log($"Applying Rotation: {tiltZ}, Actual Rotation.z: {cardTransform.rotation.eulerAngles.z}");
 
             // Update start position for smooth dragging
             startTouchPosition = currentTouchPosition;
@@ -64,10 +65,11 @@ public class SwipeCard : MonoBehaviour
             endTouchPosition.z = 0; // Keep on the same plane
             Vector3 swipeDelta = endTouchPosition - startTouchPosition;
 
-            if (Mathf.Abs(swipeDelta.y) > swipeThreshold)
+            if (Mathf.Abs(transform.position.y - resetPos.position.y) > swipeThreshold)
             {
+                Debug.Log("Should have counted here!");
                 // Trigger actions based on swipe direction
-                if (swipeDelta.y > 0)
+                if (transform.position.y - resetPos.position.y > 0)
                 {
                     SwipeUp();
                 }
@@ -85,12 +87,16 @@ public class SwipeCard : MonoBehaviour
     private void SwipeUp()
     {
         Debug.Log("Swiped Up - YES");
+        SpawnCase();
+        Destroy(gameObject);
         // Add your logic for swiping up (e.g., call a method)
     }
 
     private void SwipeDown()
     {
         Debug.Log("Swiped Down - NO");
+        SpawnCase();
+        Destroy(gameObject);
         // Add your logic for swiping down (e.g., call a method)
     }
 
@@ -102,5 +108,10 @@ public class SwipeCard : MonoBehaviour
 
         // Reset rotation
         cardTransform.rotation = resetPos.rotation;
+    }
+
+    private void SpawnCase()
+    {
+        caseHandler.SpawnCase();
     }
 }
