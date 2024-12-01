@@ -1,91 +1,106 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class SwipeCard : MonoBehaviour
 {
-    public float swipeThreshold = 100f; // Distance needed to consider a swipe
-    public float tiltAngle = 15f; // Angle to tilt the card while dragging
+    public float swipeThreshold = 1f; // Distance needed to consider a swipe (adjust for world space)
     [TextArea] public string testCase;
-    public string agreeCase;
-    public string denyCase;
+    public string agreeCase; // Text for upward swipe
+    public string denyCase; // Text for downward swipe
+    public Transform resetPos;
+    public Animator phoneAnim;
+    public float maxTiltUp = -20f; // Maximum tilt on the z-axis when swiping up
+    public float maxTiltDown = 43f; // Maximum tilt on the z-axis when swiping down
 
-    private Vector2 startTouchPosition;
+    private Vector3 startTouchPosition;
     private bool isDragging = false;
-    private RectTransform cardTransform; // Reference to the card's RectTransform
-    private TextMeshProUGUI caseText; // Reference to the Text showing the case
+    private Transform cardTransform; // Reference to the card's Transform
+    private TextMeshPro caseText; // Reference to the TextMeshPro component for displaying text
 
     private void Start()
     {
-        cardTransform = gameObject.GetComponent<RectTransform>();
-        caseText = GameObject.Find("testCaseTMP").GetComponent<TextMeshProUGUI>();
+        cardTransform = transform; // Use the Transform of the GameObject
+        caseText = GameObject.Find("TestCaseTMP").GetComponent<TextMeshPro>();
+        resetPos = GameObject.Find("CrimeCaseTransform").GetComponent<Transform>();
+        phoneAnim = GameObject.Find("PhoneScreen").GetComponent<Animator>();
+        caseText.text = testCase;
     }
 
     void Update()
     {
+        // Change the animation to "Yes" or "No" based on direction
+        phoneAnim.SetFloat("Parameter", transform.position.y - resetPos.position.y);
+
         if (Input.GetMouseButtonDown(0)) // Detect touch start
         {
-            startTouchPosition = Input.mousePosition;
+            startTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            startTouchPosition.z = 0; // Keep on the same plane
             isDragging = true;
         }
 
         if (Input.GetMouseButton(0) && isDragging) // Detect dragging
         {
-            Vector2 currentTouchPosition = Input.mousePosition;
-            Vector2 delta = currentTouchPosition - startTouchPosition;
+            Vector3 currentTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            currentTouchPosition.z = 0; // Keep on the same plane
+            Vector3 delta = currentTouchPosition - startTouchPosition;
 
-            // Tilt the card based on drag direction
-            cardTransform.anchoredPosition = delta;
-            cardTransform.rotation = Quaternion.Euler(0, 0, -delta.x / swipeThreshold * tiltAngle);
+            // Restrict movement to the y-axis only
+            cardTransform.position = new Vector3(cardTransform.position.x, cardTransform.position.y + delta.y, cardTransform.position.z);
 
-            // Change the text to "Yes" or "No" based on direction
-            caseText.text = delta.x > 0 ? agreeCase : denyCase;
+            // Adjust rotation based on vertical drag
+            float tiltZ = Mathf.Lerp(0, transform.position.y > resetPos.position.y ? maxTiltUp : maxTiltDown, Mathf.Abs(transform.position.y - resetPos.position.y) / swipeThreshold);
+            tiltZ = Mathf.Clamp(tiltZ, maxTiltUp, maxTiltDown);
+            cardTransform.rotation = Quaternion.Euler(0, 0, tiltZ);
+            Debug.Log($"Applying Rotation: {tiltZ}, Actual Rotation.z: {cardTransform.rotation.eulerAngles.z}");
+
+            // Update start position for smooth dragging
+            startTouchPosition = currentTouchPosition;
         }
 
         if (Input.GetMouseButtonUp(0) && isDragging) // Detect touch end
         {
             isDragging = false;
-            Vector2 endTouchPosition = Input.mousePosition;
-            Vector2 swipeDelta = endTouchPosition - startTouchPosition;
+            Vector3 endTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            endTouchPosition.z = 0; // Keep on the same plane
+            Vector3 swipeDelta = endTouchPosition - startTouchPosition;
 
-            if (Mathf.Abs(swipeDelta.x) > swipeThreshold)
+            if (Mathf.Abs(swipeDelta.y) > swipeThreshold)
             {
                 // Trigger actions based on swipe direction
-                if (swipeDelta.x > 0)
+                if (swipeDelta.y > 0)
                 {
-                    SwipeRight();
+                    SwipeUp();
                 }
                 else
                 {
-                    SwipeLeft();
+                    SwipeDown();
                 }
             }
 
             // Reset card position and rotation
             ResetCard();
         }
-        if (!isDragging)
-        {
-            caseText.text = testCase;
-        }
     }
 
-    private void SwipeLeft()
+    private void SwipeUp()
     {
-        Debug.Log("Swiped Left - NO");
-        // Add your logic for swiping left (e.g., call a method)
+        Debug.Log("Swiped Up - YES");
+        // Add your logic for swiping up (e.g., call a method)
     }
 
-    private void SwipeRight()
+    private void SwipeDown()
     {
-        Debug.Log("Swiped Right - YES");
-        // Add your logic for swiping right (e.g., call a method)
+        Debug.Log("Swiped Down - NO");
+        // Add your logic for swiping down (e.g., call a method)
     }
 
     private void ResetCard()
     {
-        cardTransform.anchoredPosition = Vector2.zero;
-        cardTransform.rotation = Quaternion.identity;
-        caseText.text = ""; // Reset text if needed
+        Debug.Log("Resetting Card..");
+        // Reset position (adjust to your original card position)
+        cardTransform.position = resetPos.position;
+
+        // Reset rotation
+        cardTransform.rotation = resetPos.rotation;
     }
 }
