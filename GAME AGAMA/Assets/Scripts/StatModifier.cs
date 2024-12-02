@@ -107,9 +107,12 @@ public class StatModifier : MonoBehaviour
         }
     }
 
-
+    
+    public Animator anim;
     public void ChangeStat( int trust, int conscience, int economy, int politics)
     {
+        anim.SetTrigger("Flash");
+        AudioManager.instance.PlaySFX("Flash");
         DOTween.To(() => trustslider.value, x => trustslider.value = x, JudgeStats.instance.trust + trust, 0.5f);
         DOTween.To(() => conscienceslider.value, x => conscienceslider.value = x, JudgeStats.instance.conscience + conscience, 0.5f);
         DOTween.To(() => economyslider.value, x => economyslider.value = x, JudgeStats.instance.economy + economy, 0.5f);

@@ -11,6 +11,7 @@ public class SwipeCase : MonoBehaviour
     public float maxTiltUp = -20f; // Maximum tilt on the z-axis when swiping up
     public float maxTiltDown = 43f; // Maximum tilt on the z-axis when swiping down
 
+
     private Vector3 startTouchPosition;
     private bool isDragging = false;
     private Transform cardTransform; // Reference to the card's Transform
@@ -111,8 +112,11 @@ public class SwipeCase : MonoBehaviour
     private void SwipeUp()
     {
         Debug.Log("Swiped Up - YES");
-        SpawnCase();
-        Destroy(gameObject);
+
+        Invoke("DelayDestroy",1.1f);
+        // AudioManager.instance.PlaySFX("Cheer");
+        AudioManager.instance.PlaySFX("Gasp");
+
         // Add your logic for swiping up (e.g., call a method)
         StatModifier.instance.ChangeStat(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
     }
@@ -120,12 +124,18 @@ public class SwipeCase : MonoBehaviour
     private void SwipeDown()
     {
         Debug.Log("Swiped Down - NO");
-        SpawnCase();
-        Destroy(gameObject);
+
+        Invoke("DelayDestroy",1.1f);
+        AudioManager.instance.PlaySFX("Hammer");
         // Add your logic for swiping down (e.g., call a method)
         StatModifier.instance.ChangeStat(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
     }
 
+    void DelayDestroy()
+    {
+        SpawnCase();
+        Destroy(gameObject);
+    }
     private void ResetCard()
     {
         Debug.Log("Resetting Card..");
