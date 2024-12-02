@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 11bf1c8205d49b94f84bddd6e255919c, type: 3}
-  m_Name: Case2
+  m_Name: Case 3
   m_EditorClassIdentifier: 
-  agreeTrust: 2
-  agreeConscience: 0
-  agreeEconomy: 1
-  agreePolitic: -3
-  declineTrust: -2
-  declineConscience: -1
+  agreeTrust: -2
+  agreeConscience: -2
+  agreeEconomy: 0
+  agreePolitic: 3
+  declineTrust: 2
+  declineConscience: 2
   declineEconomy: 0
-  declinePolitic: 3
-  testCase: Seorang pejabat pemerintah dituduh menerima suap dalam proyek pembangunan
-    jembatan
+  declinePolitic: -3
+  testCase: Seorang aktivis ditangkap karena menyebarkan pamflet yang mengkritik
+    pemerintah.

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11bf1c8205d49b94f84bddd6e255919c, type: 3}
+  m_Name: Case 4
+  m_EditorClassIdentifier: 
+  agreeTrust: 3
+  agreeConscience: -2
+  agreeEconomy: 0
+  agreePolitic: -1
+  declineTrust: -2
+  declineConscience: 0
+  declineEconomy: 1
+  declinePolitic: 2
+  testCase: Seorang pegawai negeri memalsukan dokumen untuk mendapatkan tunjangan
+    lebih besar.

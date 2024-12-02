@@ -28,11 +28,25 @@ public class SwipeCase : MonoBehaviour
         caseStats = GetComponent<CaseStats>();
         caseText.text = caseStats.testCase;
     }
-
+    public float minYPosition = -0.7395f;
+    public float maxYPosition = 3f;
     void Update()
     {
         // Change the animation to "Yes" or "No" based on direction
         phoneAnim.SetFloat("Parameter", transform.position.y - resetPos.position.y);
+        if(transform.position.y - resetPos.position.y > 1)
+        {
+            StatModifier.instance.ChangeStatCheck(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
+        }
+        else if(transform.position.y - resetPos.position.y < -1.5f)
+        {
+            StatModifier.instance.ChangeStatCheck(caseStats.declineTrust, caseStats.declineConscience, caseStats.declineEconomy, caseStats.declinePolitic);
+        }
+        else
+        {
+            StatModifier.instance.ChangeStatCheck(0,0,0,0);
+        }
+
 
         if (Input.GetMouseButtonDown(0)) // Detect touch start
         {
@@ -40,18 +54,26 @@ public class SwipeCase : MonoBehaviour
             startTouchPosition.z = 0; // Keep on the same plane
             isDragging = true;
         }
-
+        
         if (Input.GetMouseButton(0) && isDragging) // Detect dragging
         {
             Vector3 currentTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             currentTouchPosition.z = 0; // Keep on the same plane
             Vector3 delta = currentTouchPosition - startTouchPosition;
 
-            // Restrict movement to the y-axis only
-            cardTransform.position = new Vector3(cardTransform.position.x, cardTransform.position.y + delta.y, cardTransform.position.z);
+            // Calculate the new Y position
+            float newYPosition = cardTransform.position.y + delta.y;
+
+            // Restrict movement to the y-axis only and clamp the position.y
+            float clampedY = Mathf.Clamp(newYPosition, minYPosition, maxYPosition); // Define minYPosition and maxYPosition
+            cardTransform.position = new Vector3(cardTransform.position.x, clampedY, cardTransform.position.z);
 
             // Adjust rotation based on vertical drag
-            float tiltZ = Mathf.Lerp(0, transform.position.y > resetPos.position.y ? maxTiltUp : maxTiltDown, Mathf.Abs(transform.position.y - resetPos.position.y) / 1);
+            float tiltZ = Mathf.Lerp(
+                0,
+                transform.position.y > resetPos.position.y ? maxTiltUp : maxTiltDown,
+                Mathf.Abs(transform.position.y - resetPos.position.y) / 1
+            );
             tiltZ = Mathf.Clamp(tiltZ, maxTiltUp, maxTiltDown);
             cardTransform.rotation = Quaternion.Euler(0, 0, tiltZ);
 
@@ -92,6 +114,7 @@ public class SwipeCase : MonoBehaviour
         SpawnCase();
         Destroy(gameObject);
         // Add your logic for swiping up (e.g., call a method)
+        StatModifier.instance.ChangeStat(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
     }
 
     private void SwipeDown()
@@ -100,6 +123,7 @@ public class SwipeCase : MonoBehaviour
         SpawnCase();
         Destroy(gameObject);
         // Add your logic for swiping down (e.g., call a method)
+        StatModifier.instance.ChangeStat(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
     }
 
     private void ResetCard()
