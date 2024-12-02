@@ -26,6 +26,7 @@ public class CaseStats : MonoBehaviour
             declineConscience = caseSO.declineConscience;
             declineEconomy = caseSO.declineEconomy;
             declinePolitic = caseSO.declinePolitic;
+            testCase = caseSO.testCase;
         }
     }
 }

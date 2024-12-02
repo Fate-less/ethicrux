@@ -4,7 +4,6 @@ using TMPro;
 public class SwipeCase : MonoBehaviour
 {
     public float swipeThreshold = 1f; // Distance needed to consider a swipe (adjust for world space)
-    [TextArea] public string testCase;
     public string agreeCase; // Text for upward swipe
     public string denyCase; // Text for downward swipe
     public Transform resetPos;
@@ -17,6 +16,7 @@ public class SwipeCase : MonoBehaviour
     private Transform cardTransform; // Reference to the card's Transform
     private TextMeshPro caseText; // Reference to the TextMeshPro component for displaying text
     private CaseHandler caseHandler;
+    private CaseStats caseStats;
 
     private void Start()
     {
@@ -25,7 +25,8 @@ public class SwipeCase : MonoBehaviour
         resetPos = GameObject.Find("CrimeCaseTransform").GetComponent<Transform>();
         phoneAnim = GameObject.Find("PhoneScreen").GetComponent<Animator>();
         caseHandler = GameObject.Find("CaseHandler").GetComponent<CaseHandler>();
-        caseText.text = testCase;
+        caseStats = GetComponent<CaseStats>();
+        caseText.text = caseStats.testCase;
     }
 
     void Update()
@@ -78,9 +79,10 @@ public class SwipeCase : MonoBehaviour
                     SwipeDown();
                 }
             }
-
-            // Reset card position and rotation
-            ResetCard();
+            else
+            {
+                ResetCard();
+            }
         }
     }
 
