@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 2
   testCase: Seorang tokoh masyarakat dituduh menggelapkan dana masjid untuk membangun
     rumah pribadi.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

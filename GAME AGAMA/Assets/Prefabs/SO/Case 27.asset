@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 3
   testCase: Seorang kepala desa memanipulasi data penerima bantuan sosial untuk menguntungkan
     keluarganya.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

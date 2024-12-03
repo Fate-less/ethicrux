@@ -21,3 +21,5 @@ MonoBehaviour:
   declineEconomy: 0
   declinePolitic: -1
   testCase: Seorang dokter menjalankan praktik aborsi ilegal untuk pasien miskin.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

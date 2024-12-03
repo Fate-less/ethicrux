@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 2
   testCase: Seorang pegawai negeri memalsukan dokumen untuk mendapatkan tunjangan
     lebih besar.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

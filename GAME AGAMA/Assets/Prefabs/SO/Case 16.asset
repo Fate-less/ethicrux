@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -1
   testCase: Seorang nelayan ditangkap karena menggunakan bahan peledak untuk menangkap
     ikan, yang merusak terumbu karang.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

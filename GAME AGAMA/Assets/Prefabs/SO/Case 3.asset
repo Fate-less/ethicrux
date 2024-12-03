@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -3
   testCase: Seorang aktivis ditangkap karena menyebarkan pamflet yang mengkritik
     pemerintah.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

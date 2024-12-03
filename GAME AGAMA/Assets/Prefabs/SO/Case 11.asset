@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 2
   testCase: Seorang petugas polisi meminta uang damai dari tersangka kecelakaan lalu
     lintas.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

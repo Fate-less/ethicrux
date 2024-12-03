@@ -13,6 +13,8 @@ public class CaseStats : MonoBehaviour
     public int declineEconomy { get; private set; }
     public int declinePolitic { get; private set; }
     public string testCase { get; private set; }
+    public string agreeCaseArgument { get; private set; }
+    public string declineCaseArgument { get; private set; }
 
     public void Apply(ScriptableObject data)
     {
@@ -27,6 +29,8 @@ public class CaseStats : MonoBehaviour
             declineEconomy = caseSO.declineEconomy;
             declinePolitic = caseSO.declinePolitic;
             testCase = caseSO.testCase;
+            agreeCaseArgument = caseSO.agreeCaseArgument;
+            declineCaseArgument = caseSO.declineCaseArgument;
         }
     }
 }

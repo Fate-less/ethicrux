@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -1
   testCase: Seorang anak kecil mencuri buku pelajaran dari toko karena tidak mampu
     membelinya.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

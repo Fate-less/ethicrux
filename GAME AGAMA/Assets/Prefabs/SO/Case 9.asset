@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 0
   testCase: Seorang petugas bank dituduh menyelewengkan dana nasabah untuk kepentingan
     pribadi.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

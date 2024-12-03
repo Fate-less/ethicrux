@@ -21,3 +21,5 @@ MonoBehaviour:
   declineEconomy: 3
   declinePolitic: 0
   testCase: Seorang pegawai korupsi dana bantuan bencana untuk keluarganya sendiri.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

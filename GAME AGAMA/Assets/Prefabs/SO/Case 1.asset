@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 3
   testCase: Seorang pejabat pemerintah dituduh menerima suap dalam proyek pembangunan
     jembatan.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

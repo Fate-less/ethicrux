@@ -21,3 +21,5 @@ MonoBehaviour:
   declineEconomy: 0
   declinePolitic: -1
   testCase: Seorang remaja terlibat dalam geng motor yang merusak fasilitas umum.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

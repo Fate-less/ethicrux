@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class JudgeStats : MonoBehaviour
@@ -17,9 +18,9 @@ public class JudgeStats : MonoBehaviour
     }
     void Update()
     {
-        if(trust < 0 ) trust = 0;
-        if(conscience < 0 ) conscience = 0;
-        if(economy < 0 ) economy = 0;
-        if(politic < 0 ) politic = 0;
+        if(trust <= 0 ) SceneManager.LoadScene("OutOfTrust");
+        if(conscience <= 0 ) SceneManager.LoadScene("OutOfConscience");
+        if (economy <= 0 ) SceneManager.LoadScene("OutOfEconomy");
+        if (politic <= 0 ) SceneManager.LoadScene("OutOfPolitic");
     }
 }

@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -1
   testCase: Seorang pedagang pasar tertangkap mencuri uang pelanggan karena terdesak
     untuk membeli obat untuk anaknya yang sakit parah.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

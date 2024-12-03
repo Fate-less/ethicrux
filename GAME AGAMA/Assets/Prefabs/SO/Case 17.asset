@@ -21,3 +21,5 @@ MonoBehaviour:
   declineEconomy: 3
   declinePolitic: 0
   testCase: Seorang pemilik restoran diduga tidak membayar pajak selama 5 tahun.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -3
   testCase: Seorang penulis buku dituntut oleh kelompok tertentu karena dianggap
     menyebarkan ide-ide yang "berbahaya."
+  agreeCaseArgument: Hukum penulis
+  declineCaseArgument: Bebaskan penulis

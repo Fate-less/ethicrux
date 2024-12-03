@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 0
   testCase: Seorang pengusaha sukses mengancam akan memindahkan bisnisnya ke negara
     lain jika dituntut atas pelanggaran lingkungan.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

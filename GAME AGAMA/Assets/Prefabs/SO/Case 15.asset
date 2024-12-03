@@ -21,3 +21,5 @@ MonoBehaviour:
   declineEconomy: 0
   declinePolitic: 2
   testCase: Seorang guru dipecat karena mengkritik kebijakan sekolah yang diskriminatif.
+  agreeCaseArgument: Dukung guru
+  declineCaseArgument: Dukung sekolah

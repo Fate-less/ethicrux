@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -3
   testCase: Seorang aparat desa ditangkap karena membocorkan dokumen pemerintah kepada
     media terkait penyalahgunaan anggaran.
+  agreeCaseArgument: Hukum aparat
+  declineCaseArgument: Bebaskan aparat

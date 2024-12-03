@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 1
   testCase: Seorang remaja yang mabuk menyebabkan kecelakaan lalu lintas hingga menewaskan
     satu keluarga.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

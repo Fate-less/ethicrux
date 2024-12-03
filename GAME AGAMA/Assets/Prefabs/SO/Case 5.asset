@@ -21,3 +21,5 @@ MonoBehaviour:
   declineEconomy: 0
   declinePolitic: -1
   testCase: Seorang remaja mencuri makanan di pasar karena kelaparan.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

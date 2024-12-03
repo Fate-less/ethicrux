@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -3
   testCase: Seorang dokter dituntut oleh pasien karena dugaan malpraktik, meskipun
     pasien tersebut tidak mengikuti instruksi dokter.
+  agreeCaseArgument: Hukum dokter
+  declineCaseArgument: Bebaskan dokter

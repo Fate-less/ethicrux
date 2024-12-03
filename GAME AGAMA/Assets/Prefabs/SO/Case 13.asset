@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 3
   testCase: Seorang anak muda melaporkan perusahaan besar yang mencemari sungai di
     desanya.
+  agreeCaseArgument: Dukung pelapor
+  declineCaseArgument: Bebaskan perusahaan

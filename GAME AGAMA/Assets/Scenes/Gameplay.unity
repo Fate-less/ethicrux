@@ -2541,6 +2541,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1187452087}
   - component: {fileID: 1187452086}
+  - component: {fileID: 1187452088}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -2562,7 +2563,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.757
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2659,6 +2660,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187452088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187452085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6affaadf7fd01bf4cbe57b95b671a6be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1227320923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3366,6 +3379,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0bcf814b8744157498a77533853742c6, type: 2}
   - {fileID: 11400000, guid: 653d8cb0150bc8d4ead37e86bc0afb2b, type: 2}
   resetPos: {fileID: 1183078102}
+  caseCounterTMP: {fileID: 1293226713}
+  agreeCaseArgument: {fileID: 1095521073}
+  declineCaseArgument: {fileID: 1931183858}
 --- !u!4 &1525420803
 Transform:
   m_ObjectHideFlags: 0

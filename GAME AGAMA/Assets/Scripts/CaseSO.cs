@@ -17,4 +17,6 @@ public class CaseSO :ScriptableObject
     public int declinePolitic;
     [Header("Crime Case")]
     [TextArea] public string testCase;
+    public string agreeCaseArgument;
+    public string declineCaseArgument;
 }

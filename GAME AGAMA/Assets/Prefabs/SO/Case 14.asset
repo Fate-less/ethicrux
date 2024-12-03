@@ -21,3 +21,5 @@ MonoBehaviour:
   declineEconomy: 0
   declinePolitic: -3
   testCase: Seorang wartawan dipidanakan karena mengungkap skandal pejabat tinggi.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

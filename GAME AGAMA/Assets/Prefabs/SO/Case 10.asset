@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: -2
   testCase: Seorang pemuda ditangkap karena mengedarkan video provokatif di media
     sosial.
+  agreeCaseArgument: Hukum
+  declineCaseArgument: Bebaskan

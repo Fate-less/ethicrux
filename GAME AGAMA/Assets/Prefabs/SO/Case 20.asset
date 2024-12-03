@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 3
   testCase: Seorang pegawai publik melaporkan korupsi massal di kantornya tetapi
     diancam oleh atasannya.
+  agreeCaseArgument: Lindungi pelapor
+  declineCaseArgument: Abaikan laporan

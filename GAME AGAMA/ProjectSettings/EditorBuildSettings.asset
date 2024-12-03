@@ -5,7 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Gameplay.unity
+    guid: 4f1af29c62af3834c82af1cb10f17138
+  - enabled: 1
+    path: Assets/Scenes/Endings/OutOfConscience.unity
+    guid: 23047d9e897aaa948bb9597fb0afdb8b
+  - enabled: 1
+    path: Assets/Scenes/Endings/OutOfEconomy.unity
+    guid: 7a251778b84e47d489e2302b2cd4988e
+  - enabled: 1
+    path: Assets/Scenes/Endings/OutOfPolitic.unity
+    guid: cc7c8b3369ea2bb49a53d65bb500678a
+  - enabled: 1
+    path: Assets/Scenes/Endings/OutOfTrust.unity
+    guid: 1d5fe85abe9d143438757af435b86f50
+  - enabled: 1
+    path: Assets/Scenes/Endings/TrueEnding.unity
+    guid: 25622364fbd602641956a8e0c1a6e83e
   m_configObjects: {}

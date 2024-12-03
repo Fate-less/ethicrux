@@ -37,11 +37,11 @@ public class SwipeCase : MonoBehaviour
         phoneAnim.SetFloat("Parameter", transform.position.y - resetPos.position.y);
         if(transform.position.y - resetPos.position.y > 1)
         {
-            StatModifier.instance.ChangeStatCheck(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
+            StatModifier.instance.ChangeStatCheck(caseStats.declineTrust, caseStats.declineConscience, caseStats.declineEconomy, caseStats.declinePolitic);
         }
         else if(transform.position.y - resetPos.position.y < -1.5f)
         {
-            StatModifier.instance.ChangeStatCheck(caseStats.declineTrust, caseStats.declineConscience, caseStats.declineEconomy, caseStats.declinePolitic);
+            StatModifier.instance.ChangeStatCheck(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
         }
         else
         {
@@ -118,7 +118,7 @@ public class SwipeCase : MonoBehaviour
         AudioManager.instance.PlaySFX("Gasp");
 
         // Add your logic for swiping up (e.g., call a method)
-        StatModifier.instance.ChangeStat(caseStats.agreeTrust, caseStats.agreeConscience, caseStats.agreeEconomy, caseStats.agreePolitic);
+        StatModifier.instance.ChangeStat(caseStats.declineTrust, caseStats.declineConscience, caseStats.declineEconomy, caseStats.declinePolitic);
     }
 
     private void SwipeDown()

@@ -22,3 +22,5 @@ MonoBehaviour:
   declinePolitic: 0
   testCase: Seorang pengusaha kaya menuntut tetangganya yang miskin karena dianggap
     melanggar batas tanah. Tetangga tersebut tidak mampu menyewa pengacara.
+  agreeCaseArgument: Dukung pengusaha
+  declineCaseArgument: Dukung tetangga
